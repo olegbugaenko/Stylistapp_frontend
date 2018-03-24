@@ -1,3 +1,17 @@
-<p>
-  header-component works!
-</p>
+<header>
+	<h1>Stylist</h1>
+	<div *ngIf="current_user; let current_user; else auth_panel">
+	<div class="personal data">
+		<span>Hello, </span>
+		<span>{{current_user.name}}</span>
+		<span>{{current_user.last_name}}</span>
+		<a (click)="onLogout()">Logout</a>
+	</div>
+	</div>
+	<ng-template #auth_panel>
+		<ul class="options-notlogged">
+			<li><a routerLink="/login/">Login</a></li>
+			<li><a routerLink="/register/">Register</a></li>
+		</ul>
+	</ng-template>
+</header>

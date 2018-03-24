@@ -1,3 +1,18 @@
-<p>
-  login-component works!
-</p>
+<div class="form-head">
+	<p>
+	  Login
+	</p>
+</div>
+<div class="form-body">
+
+	<div [innerHTML]="error"></div>
+	<div class="row">
+		<label>Phone Number</label>
+		<input type="text" [(ngModel)] = "phonenumber" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Password</label>
+		<input type="password" [(ngModel)] = "password" [ngClass]="{'error':error}">
+	</div>
+	<div class="row"><a class="button" (click)="onLogin()">Войти</a></div>
+</div>

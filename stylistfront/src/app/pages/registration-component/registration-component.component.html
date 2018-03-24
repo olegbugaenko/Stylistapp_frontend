@@ -1,3 +1,40 @@
-<p>
-  registration-component works!
-</p>
+<div class="form-head">
+	<p>
+	  Register
+	</p>
+</div>
+<div class="form-body">
+	<div class="row">
+		<label>First Name</label>
+		<input type="text" [(ngModel)] = "name" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Last Name</label>
+		<input type="password" [(ngModel)] = "second_name" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Email</label>
+		<input type="password" [(ngModel)] = "email" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Phone Number</label>
+		<input type="text" [(ngModel)] = "phonenumber" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Password</label>
+		<input type="password" [(ngModel)] = "password" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Confirm Password</label>
+		<input type="password" [(ngModel)] = "confirm_password" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Salon Name</label>
+		<input type="text" [(ngModel)] = "salon_name" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Salon Address</label>
+		<input type="password" [(ngModel)] = "salon_address" [ngClass]="{'error':error}">
+	</div>
+	<div class="row"><a class="button" (click)="onRegister()">Войти</a></div>
+</div>
