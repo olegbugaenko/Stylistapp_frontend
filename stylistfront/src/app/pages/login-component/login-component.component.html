@@ -5,7 +5,7 @@
 </div>
 <div class="form-body">
 
-	<div [innerHTML]="error"></div>
+	<div class="auth-error-container" [innerHTML]="error"></div>
 	<div class="row">
 		<label>Phone Number</label>
 		<input type="text" [(ngModel)] = "phonenumber" [ngClass]="{'error':error}">

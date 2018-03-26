@@ -1,6 +1,6 @@
 <header>
 	<div class="upper-menu flexible" [ngClass]="{'fixed':fixedMenu}">
-		<h1>Stylist</h1>
+		<h1><a routerLink="/">Stylist</a></h1>
 		<div class="menu">
 			<span class="burger" (click)="onShowMenu(showed_menu)" [ngClass]="{'close':showed_menu}"></span>
 			<ul [ngClass]="{'show':showed_menu}">

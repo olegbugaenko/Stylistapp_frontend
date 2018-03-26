@@ -17,3 +17,7 @@
 .steps li.active{
 	font-weight: bold;
 }
+
+.content-text{
+	padding: 0 10px;
+}
