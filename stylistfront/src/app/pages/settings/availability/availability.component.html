@@ -1,3 +1,39 @@
-<p>
-  availability works!
-</p>
+<main>
+	<div class="title">
+		<h3>Setup availability</h3>
+	</div>
+	<div class="form-body">
+		<div class="row flexible" *ngFor="let availability of availabilities; let day_id = index">
+			<p class="title">{{availability.title}}</p>
+			<div class="time-selector">
+				<span>From</span>
+				<select [(ngModel)] = "availabilities[day_id].from">
+					<option *ngFor="let h of hoursAvail" value="{{h}}">{{h}}:00</option>
+				</select>
+			</div>
+			<div class="time-selector">
+				<span>To</span>
+				<select [(ngModel)] = "availabilities[day_id].to">
+					<option *ngFor="let h of hoursAvail" value="{{h}}">{{h}}:00</option>
+				</select>
+			</div>
+
+			<div class="free-selector">
+				<span>Day is free</span>
+				<select [(ngModel)] = "availabilities[day_id].is_free">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select>
+			</div>
+		</div>
+		<div class="row success-cont" *ngIf="success_message">
+			<p class="success">{{success_message}}</p>
+		</div>
+		<div class="row success-cont" *ngIf="error_message">
+			<p class="error">{{error_message}}</p>
+		</div>
+		<div class="row">
+			<a class="button" (click)="saveAvailabilities()">Save</a>
+		</div>
+	</div>
+</main>

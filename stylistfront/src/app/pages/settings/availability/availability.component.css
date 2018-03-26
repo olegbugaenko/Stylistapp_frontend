@@ -1,0 +1,38 @@
+.time-selector, .free-selector, .row.flexible .title{
+	align-self: center;
+	flex: 1;
+}
+
+@media(max-width: 640px){
+	.form-body .row{
+		flex-direction: column;
+	}
+
+	.time-selector, .free-selector, .row.flexible .title{
+		padding: 10px;
+	}
+
+	.time-selector, .free-selector{
+		width: 220px;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.row.success-cont{
+	justify-content: space-around;
+}
+
+.row.success-cont .success{
+	padding: 20px;
+	border: 1px solid #347831;
+	background: #effaeb;
+	color: #347831;
+}
+
+.row.success-cont .error{
+	padding: 20px;
+	border: 1px solid #783431;
+	background: #faefeb;
+	color: #783431;
+}

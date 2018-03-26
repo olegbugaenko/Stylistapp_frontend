@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
 import { UserAuthService } from './services/user.auth.service';
 import { ManageServicesService } from './services/manage-services.service';
+import { ManageAvailabilityService } from './services/manage-availability.service';
 import { WINDOW_PROVIDERS } from "./services/window.service";
 import { LoginRouteGuard } from './services/login-guard';
 
@@ -57,6 +58,7 @@ const routes = [
     },
     UserAuthService,
     ManageServicesService,
+    ManageAvailabilityService,
     WINDOW_PROVIDERS,
     LoginRouteGuard],
   bootstrap: [AppComponent]
