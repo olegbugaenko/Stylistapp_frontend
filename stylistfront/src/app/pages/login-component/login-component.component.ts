@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   	  	this.userAuthService.attemptRecieveUser();
 
   	  	this.router.navigate(['/personal']);
-  	  	window.location.reload();
+  	  	window.location.href = '/personal/';
   	  }
   	  else
   	  if('error' in resp)

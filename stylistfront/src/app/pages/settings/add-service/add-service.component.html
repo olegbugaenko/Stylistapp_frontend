@@ -1,0 +1,28 @@
+<div class="form-head">
+	<p>
+	  Add service
+	</p>
+</div>
+<div class="form-body">
+	<div class="row">
+		<label>Select service from list</label>
+		<div class="for-autocomplete">
+			<input type="text" [(ngModel)] = "service_name" [ngClass]="{'error':error}" (keyup)="populateServices()" (blur)="closePopulate()">
+			<div class="autocomplete" *ngIf="isSearching">
+				<p *ngFor="let aservice of found_services" [id]="aservice.id" (mousedown)="selectService(aservice.id, aservice.service_name)">{{aservice.service_name}}</p>
+			</div>
+		</div>
+		<!-- <select [(ngModel)] = "service.service_id">
+			<option *ngFor="let aservice of available_services" [value]="aservice.id">{{aservice.service_name}}</option>
+		</select> -->
+	</div>
+	<div class="row">
+		<label>Select duration</label>
+		<input type="text" [(ngModel)] = "service.duration" [ngClass]="{'error':error}">
+	</div>
+	<div class="row">
+		<label>Select price</label>
+		<input type="text" [(ngModel)] = "service.price" [ngClass]="{'error':error}">
+	</div>
+	<div class="row"><a class="button" (click)="onAddService()">Add service</a></div>
+</div>

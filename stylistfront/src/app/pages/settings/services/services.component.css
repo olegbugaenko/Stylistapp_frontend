@@ -1,0 +1,69 @@
+.service-items{
+	padding: 10px;
+}
+
+.service-items .service{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	border-bottom: 1px solid #ebebeb;
+}
+
+.service-items .service:first-child{
+	border-top: 1px solid #ebebeb;
+}
+
+.service-items .service .service_name{
+	flex: 1;
+}
+
+.service-items .service .controls,
+.service-items .service .show-info{
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+}
+
+.service-items .service .show-info span.edit{
+	cursor: pointer;
+}
+
+.service-items .service .show-info span.edit::before{
+	content: '';
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: url('/assets/img/edit_pencil.png');
+	background-size: contain;
+	margin-right: 5px;
+}
+
+.service-items .service .controls input{
+	padding: 5px;
+}
+
+.service-items .service .controls span.save{
+	cursor: pointer;
+}
+
+.service-items .service .controls span.save::before{
+	content: '';
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: url('/assets/img/save_img.png');
+	background-size: contain;
+	margin-right: 5px;
+}
+
+.plus-icon{
+	display: block;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	background: url('/assets/img/plus.png');
+	background-size: contain;
+	cursor: pointer;
+}

@@ -1,0 +1,26 @@
+.for-autocomplete{
+	flex: 1;
+    max-width: 280px;
+    position: relative;
+}
+
+.for-autocomplete input{
+	width: 100%;
+}
+
+.for-autocomplete .autocomplete{
+	display: block;
+	position: absolute;
+	width: 100%;
+	border: 1px solid #ebebeb;
+	background: #fff;
+	overflow-y: scroll;
+	max-height: 100px;
+}
+
+.for-autocomplete .autocomplete p{
+	padding: 10px;
+	margin: 0;
+	border-bottom: 1px solid #ebebeb;
+	cursor: pointer;
+}

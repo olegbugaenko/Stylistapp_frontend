@@ -6,35 +6,35 @@
 <div class="form-body">
 	<div class="row">
 		<label>First Name</label>
-		<input type="text" [(ngModel)] = "name" [ngClass]="{'error':error}">
+		<input type="text" [(ngModel)] = "user_data.name" [ngClass]="{'error':errors.name}">
 	</div>
 	<div class="row">
 		<label>Last Name</label>
-		<input type="password" [(ngModel)] = "second_name" [ngClass]="{'error':error}">
+		<input type="text" [(ngModel)] = "user_data.second_name" [ngClass]="{'error':errors.second_name}">
 	</div>
 	<div class="row">
 		<label>Email</label>
-		<input type="password" [(ngModel)] = "email" [ngClass]="{'error':error}">
+		<input type="email" [(ngModel)] = "user_data.email" [ngClass]="{'error':errors.email}">
 	</div>
 	<div class="row">
 		<label>Phone Number</label>
-		<input type="text" [(ngModel)] = "phonenumber" [ngClass]="{'error':error}">
+		<input type="text" [(ngModel)] = "user_data.phonenumber" [ngClass]="{'error':errors.phonenumber}">
 	</div>
 	<div class="row">
 		<label>Password</label>
-		<input type="password" [(ngModel)] = "password" [ngClass]="{'error':error}">
+		<input type="password" [(ngModel)] = "user_data.password" [ngClass]="{'error':errors.password}">
 	</div>
 	<div class="row">
 		<label>Confirm Password</label>
-		<input type="password" [(ngModel)] = "confirm_password" [ngClass]="{'error':error}">
+		<input type="password" [(ngModel)] = "user_data.password_confirmation" [ngClass]="{'error':errors.password_confirmation}">
 	</div>
 	<div class="row">
 		<label>Salon Name</label>
-		<input type="text" [(ngModel)] = "salon_name" [ngClass]="{'error':error}">
+		<input type="text" [(ngModel)] = "user_data.salon_name" [ngClass]="{'error':errors.salon_name}">
 	</div>
 	<div class="row">
 		<label>Salon Address</label>
-		<input type="password" [(ngModel)] = "salon_address" [ngClass]="{'error':error}">
+		<input type="password" [(ngModel)] = "user_data.salon_address" [ngClass]="{'error':errors.salon_address}">
 	</div>
-	<div class="row"><a class="button" (click)="onRegister()">Войти</a></div>
+	<div class="row"><a class="button" (click)="onRegister()">Registration</a></div>
 </div>

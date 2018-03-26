@@ -1,0 +1,25 @@
+<main>
+	<div class="title">
+		<h3>My services</h3>
+	</div>
+	<div class="body">
+		<div class="service-items">
+			<div class="service" *ngFor="let service of services; index as i">
+				<span class="service_name">{{service.service_name}}</span>
+				<div class="controls" *ngIf="service.editing; else showBlock;">
+					<input type="text" [(ngModel)] = "services[i].pivot.duration">
+					<input type="text" [(ngModel)] = "services[i].pivot.price">
+					<span class="save" (click)="saveService(i)">Save</span>
+				</div>
+				<ng-template #showBlock>
+					<div class="show-info">
+						<span class="duration">{{service.pivot.duration}} minutes</span>
+						<span class="price">$ {{service.pivot.price}}</span>
+						<span class="edit" (click)="editService(i)">Edit</span>
+					</div>
+				</ng-template>
+			</div>
+		</div>
+	</div>
+	<a class="plus-icon" routerLink="/personal/add-service"></a>
+</main>

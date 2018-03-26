@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { UserAuthService } from './../../services/user.auth.service';
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';
+import { WINDOW } from "./../../services/window.service";
 
 @Component({
   selector: 'app-header-comp',
@@ -10,8 +12,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 	
-  constructor(private userAuthService: UserAuthService, private router: Router) {
+  route_url = null;
 
+  constructor(private userAuthService: UserAuthService, private router: Router, @Inject(WINDOW) private window: Window, @Inject(DOCUMENT) private document: Document) {
+     
   }
 
   current_user = null;
@@ -21,16 +25,38 @@ export class HeaderComponent implements OnInit {
   	this.userAuthService.attemptRecieveUser();
 
   	this.userAuthService.currentUser.subscribe((user) => {
-  		console.log('User');
-  		console.log(user);
+      console.log('subscription worked');
+      console.log(user);
   		this.current_user = user;
-  	})
+      
+    })
   }
 
   onLogout() {
   	this.userAuthService.attemptLogout();
   	this.router.navigate(['/login']);
-  	this.userAuthService.attemptRecieveUser();
+  	this.userAuthService.setLoggedData(null);
+  }
+
+  fixedMenu = false;
+  showed_menu = false;
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    let top_pos = this.window.pageYOffset || 0;
+    
+    if (top_pos >= 10) {
+      this.fixedMenu = true;
+    } else if (this.fixedMenu && top_pos < 10) {
+      this.fixedMenu = false;
+    }
+  }
+
+  onShowMenu(opened){
+    if(!opened)
+      this.showed_menu = true;
+    else
+      this.showed_menu = false;
   }
 
 }

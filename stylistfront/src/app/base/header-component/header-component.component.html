@@ -1,17 +1,37 @@
 <header>
-	<h1>Stylist</h1>
-	<div *ngIf="current_user; let current_user; else auth_panel">
-	<div class="personal data">
-		<span>Hello, </span>
-		<span>{{current_user.name}}</span>
-		<span>{{current_user.last_name}}</span>
-		<a (click)="onLogout()">Logout</a>
+	<div class="upper-menu flexible" [ngClass]="{'fixed':fixedMenu}">
+		<h1>Stylist</h1>
+		<div class="menu">
+			<span class="burger" (click)="onShowMenu(showed_menu)" [ngClass]="{'close':showed_menu}"></span>
+			<ul [ngClass]="{'show':showed_menu}">
+				<li><a>Menu item 1</a></li>
+				<li><a>Menu item 2</a></li>
+				<li><a>Menu item 3</a></li>
+			</ul>
+		</div>
+		<div *ngIf="current_user; let current_user; else auth_panel" class="personal-section">
+			<div class="personal-data">
+				<a routerLink="/personal">
+					<span>Hello, </span>
+					<span>{{current_user.name}}</span>
+					<span>{{current_user.last_name}}</span>
+				</a>
+				<a (click)="onLogout()">Logout</a>
+			</div>
+		</div>
+		<ng-template #auth_panel class="personal-section">
+			<ul class="options-notlogged">
+				<li><a routerLink="/login/">Login</a></li>
+				<li><a routerLink="/register/">Register</a></li>
+			</ul>
+		</ng-template>
 	</div>
-	</div>
-	<ng-template #auth_panel>
-		<ul class="options-notlogged">
-			<li><a routerLink="/login/">Login</a></li>
-			<li><a routerLink="/register/">Register</a></li>
-		</ul>
-	</ng-template>
 </header>
+<script type="text/javascript">
+	/*window.addEventListener('scroll', function() { 
+	    scrollpos = window.scrollY;
+	    if (scrollpos >= 40) { document.querySelector('.upper-menu').classList.add('fixed') }
+	    else { document.querySelector('.upper-menu').classList.add('fixed') }
+	    console.log(scrollpos);
+	  })*/
+</script>
