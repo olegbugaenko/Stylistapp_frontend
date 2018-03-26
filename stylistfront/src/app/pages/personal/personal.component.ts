@@ -18,11 +18,9 @@ export class PersonalComponent implements OnInit {
   ngOnInit() {
 
   	this.userAuthService.attemptRecieveUser();
-  	
+
   	this.userAuthService.currentUser.subscribe((user) => {
-  		console.log('Personal subscription worked');
   		this.current_user = user;
-  		console.log(user);
   	});
 
   	this.serviceManager.attemptGetSetupStage().subscribe((resp)=>{

@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import decode from 'jwt-decode';
 import { Observable } from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {ApiHost} from "./../globals";
 
 @Injectable()
 export class UserAuthService{
@@ -33,7 +34,7 @@ export class UserAuthService{
 	*/
 
 	attemptLogin(phonenumber, password){
-		return this.http.post("http://localhost/lara_app/login",{'phonenumber':phonenumber,'password':password});	
+		return this.http.post(ApiHost+"/login",{'phonenumber':phonenumber,'password':password});	
 	}
 
 	/*	attemptRegister(user_data) - send query to register user with data, passed to user_data object
@@ -42,7 +43,7 @@ export class UserAuthService{
 	*/
 
 	attemptRegister(user_data){
-		return this.http.post("http://localhost/lara_app/register",user_data);	
+		return this.http.post(ApiHost+"/register",user_data);	
 	}
 
 	/*	setLoggedData(data) - store currently logged user data to session storage and observable varriable, so that subscribed
@@ -93,7 +94,7 @@ export class UserAuthService{
 		}
 		
 		//If we failed to obtain user data from session storage - we should get data from server.
-		let resp = this.http.get("http://localhost/lara_app/check_auth").subscribe((resp)=>{
+		let resp = this.http.get(ApiHost+"/check_auth").subscribe((resp)=>{
 			
 			if('user' in resp)
 				this.setLoggedData(resp['user']);
@@ -111,7 +112,6 @@ export class UserAuthService{
 
 	attemptLogout(){
 		sessionStorage.removeItem('token');
-		console.log('loging out');
 		this.setLoggedData(null);
 		
 		return {'status':'ok'};

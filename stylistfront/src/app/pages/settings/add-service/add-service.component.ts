@@ -21,20 +21,18 @@ export class AddServiceComponent implements OnInit {
 
   ngOnInit() {
   	this.serviceManager.attemptGetAvailableServices().subscribe((resp)=>{
-  		console.log(resp);
   		this.available_services = [];
   		for(var key in resp)
   		{
   			let service  = resp[key];
   			this.available_services.push(service);
   		}
-  		console.log(this.available_services);
+  		
   	})
   }
 
   onAddService() {
   	this.serviceManager.attemptSaveService(this.service).subscribe((result)=>{
-  			console.log(result);
   			this.router.navigate(['/personal/services']);
   		})
   }

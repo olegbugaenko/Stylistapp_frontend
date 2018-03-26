@@ -27,10 +27,16 @@ export class AvailabilityComponent implements OnInit {
   	}
 
   	this.availabilityService.attemptGetAvailability().subscribe((resp)=>{
-  		if(!resp || resp.length == 0)
+  		if(!resp)
   			return false;
-  			
-  		for(var availability_day of resp)
+
+  		var res = [];
+
+		for (var x in resp){
+		   resp.hasOwnProperty(x) && res.push(resp[x])
+		}
+
+  		for(var availability_day of res)
   		{
   			if('day_id' in availability_day && availability_day['day_id']<7)
   			{

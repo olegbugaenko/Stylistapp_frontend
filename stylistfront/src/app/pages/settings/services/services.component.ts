@@ -29,8 +29,6 @@ export class ServicesComponent implements OnInit {
     	{
     		this.services = [];
     	}
-
-    	console.log(resp['services']);
     })
   }
 
@@ -47,7 +45,6 @@ export class ServicesComponent implements OnInit {
   	{
   		var saved_data = this.services[index].pivot;
   		this.serviceManager.attemptSaveService(saved_data).subscribe((result)=>{
-  			console.log(result);
   			this.services[index].editing = false;
   		})
   		

@@ -32,6 +32,8 @@ const routes = [
   {path: '',component: HomeComponent}
 ]
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

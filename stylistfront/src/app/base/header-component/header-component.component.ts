@@ -25,9 +25,7 @@ export class HeaderComponent implements OnInit {
   	this.userAuthService.attemptRecieveUser();
 
   	this.userAuthService.currentUser.subscribe((user) => {
-      console.log('subscription worked');
-      console.log(user);
-  		this.current_user = user;
+      this.current_user = user;
       
     })
   }
